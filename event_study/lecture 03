@@ -1,0 +1,60 @@
+import yfinance                           
+
+# Set the dates parameters
+start = '2020-01-01'                      
+end = None                                
+
+# Download Qantas stock prices
+tic = "QAN.AX"                                            # (Q1)
+df = yfinance.download(tic, start, end, ignore_tz=True)   # (Q2)
+print(df)                                                 # (Q3)
+df.to_csv('qan_stk_prc.csv')                              # (Q4)
+            
+# Download Wesfarmers stock prices
+tic = "WES.AX"                                            # (W1)
+df = yfinance.download(tic, start, end, ignore_tz=True)   # (W2)
+print(df)                                                 # (W3)
+df.to_csv('wes_stk_prc.csv')                              # (W4)
+the_sum = 0
+for i in range(1,101):
+    if i % 2 == 0:
+        continue
+    if i % 3 == 0:
+        continue
+    if i % 7 == 0:
+        continue
+    if i % 13 == 0:
+        continue
+    print(f'    the_sum is {the_sum}')
+    the_sum = the_sum + i
+print(f'Sum is {the_sum}')
+for x in range(0, 4):
+    print(f"Outer loop: x = {x}")
+    for y in range(0,4):
+        print(f"    Start of Inner loop: y = {y}")
+        if y > x:
+            print(f"    y = {y} > x = {x}, breaking out of inner loop")
+            break
+        elif x + y >= 4:
+            print(f"    x = {x} and y ={y} have sum >= 4, continuing to next y value")
+            continue
+        elif (x + y) % 2 != 0:
+            print(f"    x = {x} and y = {y} have non-even sum, continuing to next y value")
+            continue
+        print(f"    x = {x} and y = {y} have even sum less than 4")
+def qan_tic():            
+    tic = "QAN.AX"        
+    print(tic)                             
+    return tic            
+
+tic = "WES.AX"    
+qan_tic()
+def mk_csv_name(tic, show=True):        
+    tic = tic.lower()                   
+    tic_base = tic.split('.')[0]        
+    name = f'{tic_base}_stk_prc.csv'    
+    if show is True:
+        print(name)
+    return name
+
+name = mk_csv_name('QAN.AX')   
