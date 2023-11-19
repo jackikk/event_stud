@@ -1,1 +1,28 @@
+crit = (df.loc[:, 'action'] == 'up') | (df.loc[:, 'action'] == 'down')
+print(df.loc[crit])
+for firm, idx in groups.groups.items():
+    print(f"Data for Firm == {firm}:")
+    print("----------------------------------------")
+    print(df.loc[idx])
+    print("----------------------------------------")
+    print("")
+def five_copies1(ser):
+    """ concatenate `ser` five times
+    """
+    ser_lst = [ser] * 5
+    return pd.concat(ser_lst, axis=1)
 
+# First row of `df`
+ser = df.iloc[0]
+res = five_copies1(ser)
+print(res)
+def five_copies2(ser):
+    """ concatenate `ser` five times
+    """
+    ser_lst = [ser] * 5
+    wrong_df = pd.concat(ser_lst, axis=1)
+    right_df = wrong_df.transpose()
+    return right_df
+
+res = five_copies2(ser)
+print(res)
