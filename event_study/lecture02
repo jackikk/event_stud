@@ -1,0 +1,54 @@
+# Create a variable containing the string "5"
+x = str(5)
+print(x) # --> '5'
+
+
+# Create a variable called "str", overwriting the built-in method
+str = "very bad idea!"
+
+# Trying to use the function `str` again will raise an exception
+x = str(5)
+
+# Will raise the exception:
+#     x = str(5)
+# TypeError: 'str' object is not callable
+lst = [1, "string", True, None] 
+print(type(lst))
+lst = [1, "string", True, None] 
+print(f"The item at index 0 is {lst[0]}") 
+print(f"The item at index 1 is {lst[1]}") 
+print(f"The item at index 2 is {lst[2]}") 
+print(f"The item at index 3 is {lst[3]}") 
+lst = ["a", "b", "c", "d", "e", "f"] 
+print(f"lst[:3] gives {lst[:3]}") 
+print(f"lst[0:1000] gives {lst[0:1000]}")
+lst_a = [1] 
+lst_b = [2, 3]
+lst_a.extend(lst_b)
+print(lst_a)
+lst = [1, "string", True, None, True] 
+print(f"Original lst is {lst}") 
+
+lst.remove(True) 
+print(f"lst after removing the first True is {lst}") 
+
+lst.pop(2) 
+print(f"lst after removing the element CURRENTLY at index 2 is {lst}") 
+
+lst.pop() 
+print(f"lst after removing the CURRENT last element is {lst}") 
+lst = [1, True, None] 
+print(f"lst is originally {lst}" ) 
+lst.insert(1, "string")
+print(f"After insertion, lst is now {lst}") 
+t = ("word", 5, False) 
+
+print(f"The item at index 0 is {t[0]}") 
+print(f"The item at index 1 is {t[1]}") 
+print(f"The item at index 2 is {t[2]}") 
+
+print(f"The item at index -3 is {t[-3]}") 
+print(f"The item at index -2 is {t[-2]}") 
+print(f"The item at index -1 is {t[-1]}") 
+
+print(f"The slice from index 0 through 2 is {t[0:2]}" ) 
